@@ -1,12 +1,10 @@
 from django.shortcuts import render
-from .models import Project
 
-def project_index(request):
-    projects = Project.objects.all().order_by('-created_at')
-    context = {'projects': projects}
-    return render(request, 'project/project_index.html', context)
+def main(request):
+    return render(request, 'index.html')
 
-def project_detail(request, id):
-    project = Project.objects.get(pk=id)
-    context = {'project': project}
-    return render(request, 'project/project_detail.html', context)
+def inner_page(request):
+    return render(request, 'inner-page.html')
+
+def portfolio_details(request):
+    return render(request, 'portfolio-details.html')
